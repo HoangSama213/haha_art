@@ -77,5 +77,28 @@
         }
     });
     
+    $(".product-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        items: 3,
+        dots: true,
+        loop: true,
+        nav: false,
+        margin: 20,
+        responsive: {
+            0: {
+                items: 1
+            },
+            576: {
+                items: 2
+            },
+            992: {
+                items: 3
+            }
+        }
+    });
+
+    
+
 })(jQuery);
 

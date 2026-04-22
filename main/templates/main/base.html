@@ -55,6 +55,7 @@
                     <a href="{% url 'value:valueclassroom' %}" class="dropdown-item">Value Classroom</a>
                     <a href="{% url 'regulation:classregulation' %}" class="dropdown-item">Class Regulation</a>
                     <a href="{% url 'team:team' %}" class="dropdown-item">Our Team</a>
+                    <a href="{% url 'products:index' %}" class="dropdown-item">Products</a>
                 </div>
             </div>
             <a href="/contact/" class="nav-item nav-link">Contact</a>
@@ -92,15 +93,12 @@
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-white mb-4">Gallery</h3>
                 <div class="row g-2 pt-2">
+                    
+                    {% for p in products|slice:":3" %}
                     <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/classes-1.jpg' %}">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ p.images.url }}" alt="{{ p.title }}">
                     </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/classes-2.jpg' %}">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/classes-3.jpg' %}">
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -116,5 +114,12 @@
 <!-- JS -->
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
+<!-- JS Libraries (chỉ thêm những gì base.html chưa có) -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

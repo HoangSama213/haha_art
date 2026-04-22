@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Tác phẩm của bé{% endblock %}
+
+{% block content %}
+
+{% include 'components/page_header.html' with title=page_title %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+
+        <!-- Title -->
+        <div class="text-center mb-5">
+            <h1 class="mb-3">Tác phẩm của các bé</h1>
+            <p>Những bức tranh đầy sáng tạo và cảm xúc</p>
+        </div>
+
+        <!-- Grid -->
+        <div class="row g-4">
+
+            {% for p in products %}
+<div class="col-lg-4 col-md-6">
+    <div class="art-card">
+
+        <div class="art-img product-item"
+             data-image="{{ p.images.url }}"
+             data-title="{{ p.title }}"
+             data-artist="{{ p.artist }}"
+             data-description="{{ p.description }}">
+
+            {% if p.images %}
+            <img src="{{ p.images.url }}" alt="{{ p.title }}">
+            {% endif %}
+        </div>
+
+        <div class="art-content">
+            <h5>{{ p.title }}</h5>
+            <span>{{ p.artist }}</span> <br>
+            <small>Đề tài: {{ p.description }}</small>
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+        </div>
+    </div>
+</div>
+<div id="popup" class="popup">
+    <span class="close">&times;</span>
+
+    <div class="popup-box">
+        <img id="popupImg">
+        <h4 id="popupTitle"></h4>
+        <p id="popupArtist"></p>
+        <p id="popupDescription"></p>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener("click", function(e){
+
+    let item = e.target.closest(".product-item");
+    let popup = document.getElementById("popup");
+
+    // mở popup
+    if(item){
+        document.getElementById("popupImg").src = item.dataset.image;
+        document.getElementById("popupTitle").innerText = item.dataset.title;
+        document.getElementById("popupArtist").innerText = item.dataset.artist;
+        document.getElementById("popupDescription").innerText = item.dataset.description;
+
+        popup.style.display = "flex";
+    }
+
+    // đóng popup
+    if(e.target.classList.contains("close") || e.target.id === "popup"){
+        popup.style.display = "none";
+    }
+
+});
+</script>
+{% endblock %}

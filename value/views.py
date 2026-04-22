@@ -2,4 +2,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'value/valueclassroom.html')
+    context = {
+        'page_title': 'Giá trị',
+    }
+    return render(request, 'value/valueclassroom.html', context)
