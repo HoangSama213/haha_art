@@ -10,5 +10,9 @@ class Classes(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Giá")
     image = models.ImageField(upload_to='classes/',verbose_name="Ảnh khóa học")
 
+    class Meta:
+        verbose_name = "Khóa học"
+        verbose_name_plural = "Khóa học"
+
     def __str__(self):
         return self.title
