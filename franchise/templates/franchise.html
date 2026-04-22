@@ -1,0 +1,325 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Nhượng Quyền - HaHa Art{% endblock %}
+
+{% block content %}
+
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .squishy-button {
+        box-shadow: 0 4px 0 0 #7e2c00;
+    }
+    .squishy-button:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 0 #7e2c00;
+    }
+    .blob-bg {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    :root {
+        --primary: #a53c00;
+        --primary-container: #ff7a3d;
+        --primary-fixed: #ffdbcd;
+        --on-primary-container: #652200;
+        --on-primary-fixed-variant: #7e2c00;
+        --secondary: #006a63;
+        --secondary-container: #8bf1e6;
+        --on-secondary-container: #006f67;
+        --tertiary: #735c00;
+        --tertiary-fixed: #ffe087;
+        --tertiary-container: #c29d14;
+        --on-tertiary-fixed: #241a00;
+        --on-tertiary-fixed-variant: #574500;
+        --surface: #faf9f5;
+        --surface-container: #efeeea;
+        --surface-container-low: #f4f4f0;
+        --surface-variant: #e3e2df;
+        --on-surface: #1b1c1a;
+        --on-surface-variant: #584239;
+        --outline: #8c7167;
+    }
+
+    .franchise-page { font-family: 'Lexend', sans-serif; background: var(--surface); }
+
+    /* Hero */
+    .franchise-hero { padding: 80px 24px; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+    .franchise-hero-text { flex: 1 1 400px; }
+    .franchise-badge { background: var(--tertiary-fixed); color: var(--on-tertiary-fixed); padding: 8px 16px; border-radius: 9999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; display: inline-block; margin-bottom: 24px; }
+    .franchise-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 48px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: var(--on-primary-container); margin-bottom: 24px; }
+    .franchise-hero p { font-size: 18px; line-height: 1.6; color: var(--on-surface-variant); margin-bottom: 48px; max-width: 520px; }
+    .franchise-cta-btn { background: var(--primary-container); color: white; padding: 16px 48px; border-radius: 24px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700; text-decoration: none; display: inline-block; }
+    .franchise-hero-img { flex: 1 1 380px; position: relative; }
+    .franchise-hero-img img { border-radius: 48px; border: 12px solid white; box-shadow: 0 25px 50px rgba(0,0,0,0.15); width: 100%; object-fit: cover; aspect-ratio: 4/3; }
+    .franchise-hero-quote { position: absolute; bottom: -24px; left: -24px; background: var(--secondary-container); padding: 16px; border-radius: 32px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); max-width: 200px; font-size: 13px; font-weight: 700; font-style: italic; color: var(--on-secondary-container); }
+    .franchise-blob { background: var(--primary-fixed); width: 100%; position: absolute; top: -48px; right: -48px; z-index: -1; opacity: 0.5; }
+
+    /* Benefits */
+    .franchise-benefits { background: white; padding: 80px 24px; }
+    .franchise-benefits-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .benefit-card { background: var(--surface-container); padding: 24px; border-radius: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.2s; }
+    .benefit-card:hover { transform: scale(1.05); }
+    .benefit-card:nth-child(2) { margin-top: 24px; }
+    .benefit-card:nth-child(3) { margin-top: -16px; }
+    .benefit-icon { width: 64px; height: 64px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .benefit-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700; color: var(--on-surface); margin-bottom: 4px; }
+    .benefit-card p { font-size: 13px; color: var(--on-surface-variant); }
+    .benefit-stat { background: rgba(255, 122, 61, 0.1); padding: 24px; border-radius: 40px; border: 4px dashed rgba(255, 122, 61, 0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .benefit-stat span:first-child { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 800; color: var(--primary); }
+    .benefit-stat span:last-child { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; color: var(--on-surface-variant); }
+    .benefits-text h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 36px; font-weight: 700; color: var(--on-surface); margin-bottom: 24px; }
+    .benefits-text p { font-size: 18px; line-height: 1.6; color: var(--on-surface-variant); margin-bottom: 48px; }
+    .benefits-list { display: flex; flex-direction: column; gap: 12px; }
+    .benefits-list-item { display: flex; align-items: center; gap: 12px; background: var(--surface); padding: 12px; border-radius: 12px; font-size: 15px; color: var(--on-surface); }
+
+    /* Why Section */
+    .franchise-why { padding: 80px 24px; background: var(--surface); }
+    .franchise-why-inner { max-width: 1200px; margin: 0 auto; }
+    .franchise-why h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 36px; font-weight: 700; text-align: center; color: var(--on-surface); margin-bottom: 8px; }
+    .franchise-why-divider { width: 96px; height: 8px; background: var(--primary-container); margin: 0 auto 48px; border-radius: 9999px; }
+    .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .bento-card { background: white; padding: 48px; border-radius: 48px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; }
+    .bento-card.wide { grid-column: span 2; }
+    .bento-card.full { grid-column: span 3; }
+    .bento-card.teal { background: var(--secondary-container); }
+    .bento-card.yellow { background: var(--tertiary-fixed); display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
+    .bento-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--on-surface); margin: 16px 0 12px; }
+    .bento-card p { font-size: 16px; line-height: 1.6; color: var(--on-surface-variant); max-width: 480px; }
+    .bento-icon { font-size: 48px; color: var(--primary); }
+    .bento-ghost { position: absolute; bottom: 0; right: 0; font-size: 200px; opacity: 0.07; transition: transform 0.3s; color: var(--on-surface); }
+    .bento-card:hover .bento-ghost { transform: scale(1.1); }
+    .bento-steps { display: flex; gap: 24px; flex-wrap: wrap; }
+    .bento-step { background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); padding: 16px 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.4); text-align: center; }
+    .bento-step p:first-child { font-size: 22px; font-weight: 700; color: var(--on-surface); }
+    .bento-step p:last-child { font-size: 12px; color: var(--on-tertiary-fixed-variant); }
+
+    /* Form Section */
+    .franchise-form-section { padding: 80px 24px; }
+    .franchise-form-wrap { max-width: 960px; margin: 0 auto; background: white; border-radius: 60px; box-shadow: 0 25px 60px rgba(0,0,0,0.12); overflow: hidden; display: flex; flex-wrap: wrap; border-bottom: 8px solid var(--primary-container); }
+    .franchise-form-aside { flex: 1 1 280px; background: var(--primary-container); padding: 48px; color: white; display: flex; flex-direction: column; justify-content: center; }
+    .franchise-form-aside h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+    .franchise-form-aside p { font-size: 16px; opacity: 0.9; margin-bottom: 32px; }
+    .franchise-contact-info { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+    .franchise-contact-info div { display: flex; align-items: center; gap: 12px; font-size: 15px; }
+    .franchise-form-aside img { border-radius: 24px; margin-top: 24px; height: 192px; object-fit: cover; opacity: 0.8; width: 100%; }
+    .franchise-form-body { flex: 1 1 380px; padding: 48px; }
+    .franchise-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .franchise-form-grid .full { grid-column: span 2; }
+    .franchise-form-group label { display: block; font-weight: 700; color: var(--on-surface-variant); margin-bottom: 4px; font-size: 14px; }
+    .franchise-form-group input,
+    .franchise-form-group select { width: 100%; height: 56px; border-radius: 16px; border: 2px solid var(--surface-container); background: var(--surface-container-low); padding: 0 16px; font-size: 15px; outline: none; transition: border-color 0.2s; font-family: 'Lexend', sans-serif; }
+    .franchise-form-group input:focus,
+    .franchise-form-group select:focus { border-color: var(--primary-container); }
+    .franchise-submit-btn { width: 100%; background: var(--primary-container); color: white; border: none; padding: 16px; border-radius: 16px; font-size: 17px; font-weight: 700; cursor: pointer; margin-top: 24px; box-shadow: 0 4px 0 0 #7e2c00; transition: transform 0.1s, box-shadow 0.1s; font-family: 'Lexend', sans-serif; }
+    .franchise-submit-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 0 #7e2c00; }
+    .franchise-submit-btn:hover { opacity: 0.92; }
+
+    @media (max-width: 768px) {
+        .franchise-hero h1 { font-size: 32px; }
+        .franchise-benefits-inner { grid-template-columns: 1fr; }
+        .bento-grid { grid-template-columns: 1fr; }
+        .bento-card.wide, .bento-card.full { grid-column: span 1; }
+        .franchise-form-grid { grid-template-columns: 1fr; }
+        .franchise-form-grid .full { grid-column: span 1; }
+    }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<div class="franchise-page">
+
+<!-- Hero Section -->
+<section class="franchise-hero">
+    <div class="franchise-hero-text">
+        <span class="franchise-badge">Mô hình nhượng quyền</span>
+        <h1>HaHa Art – Mô hình giáo dục sáng tạo đã được chứng minh.</h1>
+        <p>Sau 5 năm phát triển, HaHa Art không chỉ là một lớp học vẽ mà đã trở thành một mô hình giáo dục sáng tạo hiệu quả, được hàng trăm học viên và phụ huynh tin tưởng.</p>
+        <a class="franchise-cta-btn squishy-button" href="#register">Tham gia ngay</a>
+    </div>
+    <div class="franchise-hero-img">
+        {% if franchise_hero and franchise_hero.image %}
+            <img alt="{{ franchise_hero.alt_text }}" src="{{ franchise_hero.image.url }}" />
+            <div class="franchise-hero-quote">"{{ franchise_hero.quote }}"</div>
+        {% else %}
+            <img alt="Sáng tạo cùng trẻ"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVOhNpkN8Rvi9dkC-hFiJzQSo4UmEDoN3q1kmLmyDRKbLQ2D-GIoOisrc_dAPw4rudWXa3i2hhoLNcefqOEAdHort2yRkS7z5tojtqyE59ql5z9t77UuLyWPd2P2icMaX6dMz4LJ4l5BjOzuPc4N9ghmUzpcaMjFFwdD0vRj24k-gOoaUux31E9YYW2m7RqH9B6h-vSrtT-XP1gkajm3Z9X8llWWP7pKhchMSQNP2fHfWdbY14eZclbftqTfjcohqXb7NvBZP0s1Y"
+            />
+            <div class="franchise-hero-quote">"Nơi ươm mầm cho những tài năng nhí tỏa sáng rực rỡ!"</div>
+        {% endif %}
+    </div>
+</section>
+
+    <!-- Benefits Section -->
+    <section class="franchise-benefits">
+        <div class="franchise-benefits-inner">
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon" style="background: rgba(255,122,61,0.15);">
+                        <span class="material-symbols-outlined" style="font-size:36px; color: var(--primary-container);">palette</span>
+                    </div>
+                    <h3>Tự tin thể hiện</h3>
+                    <p>Khám phá bản thân qua sắc màu</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon" style="background: rgba(0,106,99,0.12);">
+                        <span class="material-symbols-outlined" style="font-size:36px; color: var(--secondary);">psychology</span>
+                    </div>
+                    <h3>Phát triển tư duy</h3>
+                    <p>Kích thích trí não sáng tạo</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon" style="background: rgba(194,157,20,0.15);">
+                        <span class="material-symbols-outlined" style="font-size:36px; color: var(--tertiary-container);">favorite</span>
+                    </div>
+                    <h3>Yêu thích học tập</h3>
+                    <p>Môi trường giáo dục vui vẻ</p>
+                </div>
+                <div class="benefit-stat">
+                    <span>+5 năm</span>
+                    <span>Kinh nghiệm đào tạo</span>
+                </div>
+            </div>
+            <div class="benefits-text">
+                <h2>Giá trị vượt trội cho trẻ thơ</h2>
+                <p>HaHa Art không chỉ mang đến giá trị cho trẻ em, mà còn mở ra cơ hội xây dựng một mô hình kinh doanh ý nghĩa và lâu dài. Chúng tôi tập trung vào việc nuôi dưỡng tâm hồn và bản sắc cá nhân của mỗi đứa trẻ.</p>
+                <div class="benefits-list">
+                    <div class="benefits-list-item">
+                        <span class="material-symbols-outlined" style="color: var(--primary-container);">verified_user</span>
+                        Chương trình đào tạo chuẩn quốc tế
+                    </div>
+                    <div class="benefits-list-item">
+                        <span class="material-symbols-outlined" style="color: var(--secondary);">groups</span>
+                        Đội ngũ chuyên gia giàu kinh nghiệm
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="franchise-why">
+        <div class="franchise-why-inner">
+            <h2>Vì sao chọn Mô Hình Kinh Doanh này?</h2>
+            <div class="franchise-why-divider"></div>
+            <div class="bento-grid">
+                <div class="bento-card wide">
+                    <span class="material-symbols-outlined bento-icon">trending_up</span>
+                    <h3>Nhu cầu cao tại địa phương</h3>
+                    <p>Thị trường giáo dục nghệ thuật đang bùng nổ, phụ huynh ngày càng chú trọng đầu tư vào phát triển kỹ năng mềm cho con trẻ.</p>
+                    <span class="material-symbols-outlined bento-ghost">show_chart</span>
+                </div>
+                <div class="bento-card teal">
+                    <span class="material-symbols-outlined bento-icon" style="color: var(--secondary);">savings</span>
+                    <h3>Chi phí vận hành tối ưu</h3>
+                    <p>Mô hình tinh gọn, hiệu quả, giúp tối ưu chi phí từ những ngày đầu vận hành.</p>
+                    <div style="margin-top: 32px;">
+                        <div style="height: 8px; background: rgba(0,106,99,0.15); border-radius: 9999px; overflow: hidden;">
+                            <div style="height: 100%; background: var(--secondary); width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-card yellow full">
+                    <div style="flex: 1;">
+                        <span class="material-symbols-outlined bento-icon" style="color: var(--tertiary);">rocket_launch</span>
+                        <h3>Dễ triển khai – dễ mở rộng</h3>
+                        <p>Quy trình nhượng quyền được đóng gói chuyên nghiệp, giúp bạn nhanh chóng vận hành trung tâm chỉ trong vòng 30 ngày.</p>
+                    </div>
+                    <div class="bento-steps">
+                        <div class="bento-step">
+                            <p>Step 1</p>
+                            <p>Tư vấn &amp; Khảo sát</p>
+                        </div>
+                        <div class="bento-step">
+                            <p>Step 2</p>
+                            <p>Thi công &amp; Setup</p>
+                        </div>
+                        <div class="bento-step">
+                            <p>Step 3</p>
+                            <p>Đào tạo &amp; Vận hành</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Registration Form -->
+<section class="franchise-form-section" id="register">
+    <div class="franchise-form-wrap">
+        <div class="franchise-form-aside">
+            <h2>Đăng ký tư vấn nhượng quyền</h2>
+            <p>💛 Cùng HaHa Art lan tỏa sáng tạo – và phát triển hệ thống ngay tại khu vực của bạn.</p>
+            <div class="franchise-contact-info">
+                <div>
+                    <span class="material-symbols-outlined">call</span>
+                    <span>Hotline: 1900 xxxx</span>
+                </div>
+                <div>
+                    <span class="material-symbols-outlined">mail</span>
+                    <span>franchise@hahaart.vn</span>
+                </div>
+            </div>
+            {% if franchise_form_image and franchise_form_image.image %}
+                <img alt="{{ franchise_form_image.alt_text }}" src="{{ franchise_form_image.image.url }}" />
+            {% else %}
+                <img alt="Hỗ trợ tận tâm"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoZHVXEsUV6j2cN_AfvMH4t5plTyrjBeuI1TBGjz-22AoUQqnNLNb51pMvk7fVnBzyXfYvFmkTLvoULzux5BSqWS4gU3tF7uM2EBMp008dK-zRye0nFLlm2MvBbDBixkbvWkegort3DD3jLvfxMvfksXo3qozEGi2TMBdHAvKyx4wDobkNGjTu7XonsFwx0i36VMeOGVnf_4F_NI_ptIi8PP2C7YNa0-M7qAUYDBNYb5YmlAA47gYgcIS3iIqp7ShYalCMjH9MXME"
+                />
+            {% endif %}
+        </div>
+        <div class="franchise-form-body">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} mb-3">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <div class="franchise-form-grid">
+                    <div class="franchise-form-group">
+                        <label>Tên</label>
+                        <input type="text" name="full_name" placeholder="Họ và tên của bạn" required />
+                    </div>
+                    <div class="franchise-form-group">
+                        <label>Năm sinh</label>
+                        <input type="number" name="birth_year" placeholder="Ví dụ: 1990" />
+                    </div>
+                    <div class="franchise-form-group">
+                        <label>Số điện thoại</label>
+                        <input type="tel" name="phone" placeholder="090 xxx xxxx" required />
+                    </div>
+                    <div class="franchise-form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="example@mail.com" required />
+                    </div>
+                    <div class="franchise-form-group full">
+                        <label>Nơi ở</label>
+                        <input type="text" name="location" placeholder="Thành phố / Tỉnh thành hiện tại" />
+                    </div>
+                    <div class="franchise-form-group">
+                        <label>Khu vực dự định mở</label>
+                        <input type="text" name="target_area" placeholder="Quận/Huyện" />
+                    </div>
+                    <div class="franchise-form-group">
+                        <label>Thời gian dự định mở</label>
+                        <select name="timeline">
+                            <option>Trong 3 tháng tới</option>
+                            <option>Trong 6 tháng tới</option>
+                            <option>Năm sau</option>
+                            <option>Đang tìm hiểu</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="franchise-submit-btn" type="submit">Gửi yêu cầu tư vấn</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+</div>
+
+{% endblock %}

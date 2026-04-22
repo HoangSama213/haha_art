@@ -6,6 +6,61 @@
 {% block content %}
 
 {% include 'components/page_header.html' with title=page_title %}
+<style>
+    /* Art card scroll animation */
+    .art-card {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .art-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .art-card.hide {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    /* Popup animation */
+    .popup {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .popup.show {
+        opacity: 1;
+    }
+
+    .popup-box {
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        max-width: 500px;
+        width: 90%;
+        transform: scale(0.85);
+        transition: transform 0.3s ease;
+    }
+
+    .popup.show .popup-box {
+        transform: scale(1);
+    }
+
+    .popup-box img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+</style>
 
 <div class="container-xxl py-5">
     <div class="container">
@@ -18,37 +73,32 @@
 
         <!-- Grid -->
         <div class="row g-4">
-
             {% for p in products %}
-<div class="col-lg-4 col-md-6">
-    <div class="art-card">
-
-        <div class="art-img product-item"
-             data-image="{{ p.images.url }}"
-             data-title="{{ p.title }}"
-             data-artist="{{ p.artist }}"
-             data-description="{{ p.description }}">
-
-            {% if p.images %}
-            <img src="{{ p.images.url }}" alt="{{ p.title }}">
-            {% endif %}
-        </div>
-
-        <div class="art-content">
-            <h5>{{ p.title }}</h5>
-            <span>{{ p.artist }}</span> <br>
-            <small>Đề tài: {{ p.description }}</small>
-        </div>
-
-    </div>
-</div>
-{% endfor %}
+            <div class="col-lg-4 col-md-6">
+                <div class="art-card">
+                    <div class="art-img product-item"
+                         data-image="{{ p.images.url }}"
+                         data-title="{{ p.title }}"
+                         data-artist="{{ p.artist }}"
+                         data-description="{{ p.description }}">
+                        {% if p.images %}
+                        <img src="{{ p.images.url }}" alt="{{ p.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="art-content">
+                        <h5>{{ p.title }}</h5>
+                        <span>{{ p.artist }}</span> <br>
+                        <small>Đề tài: {{ p.description }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+
 <div id="popup" class="popup">
     <span class="close">&times;</span>
-
     <div class="popup-box">
         <img id="popupImg">
         <h4 id="popupTitle"></h4>
@@ -57,28 +107,50 @@
     </div>
 </div>
 
-
 <script>
-document.addEventListener("click", function(e){
+// ── Scroll animation: lướt lên hiện, lướt xuống ẩn ──
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.remove('hide');
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+            entry.target.classList.add('hide');
+        }
+    });
+}, { threshold: 0.15 });
 
-    let item = e.target.closest(".product-item");
-    let popup = document.getElementById("popup");
+document.querySelectorAll('.art-card').forEach(card => observer.observe(card));
 
-    // mở popup
-    if(item){
-        document.getElementById("popupImg").src = item.dataset.image;
-        document.getElementById("popupTitle").innerText = item.dataset.title;
-        document.getElementById("popupArtist").innerText = item.dataset.artist;
-        document.getElementById("popupDescription").innerText = item.dataset.description;
+// ── Popup ──
+const popup = document.getElementById("popup");
 
-        popup.style.display = "flex";
+function openPopup(item) {
+    document.getElementById("popupImg").src = item.dataset.image;
+    document.getElementById("popupTitle").innerText = item.dataset.title;
+    document.getElementById("popupArtist").innerText = item.dataset.artist;
+    document.getElementById("popupDescription").innerText = item.dataset.description;
+    popup.style.display = "flex";
+    requestAnimationFrame(() => popup.classList.add('show'));
+}
+
+function closePopup() {
+    popup.classList.remove('show');
+    setTimeout(() => popup.style.display = "none", 300);
+}
+
+document.addEventListener("click", function(e) {
+    const item = e.target.closest(".product-item");
+    if (item) { openPopup(item); return; }
+    if (e.target.classList.contains("close") || e.target.id === "popup") {
+        closePopup();
     }
+});
 
-    // đóng popup
-    if(e.target.classList.contains("close") || e.target.id === "popup"){
-        popup.style.display = "none";
-    }
-
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closePopup();
 });
 </script>
+
 {% endblock %}
