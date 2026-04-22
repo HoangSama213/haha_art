@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-(cg9s&qkf_j8iq6!=f=3xrf9@##op)+ghpsh=m7af65@2101-e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['haha-art.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["*"]  # Cho phép tất cả các host trong môi trường phát triển
 
 
 # Application definition
@@ -51,7 +51,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
