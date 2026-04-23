@@ -34,9 +34,10 @@
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-    <a href="/" class="navbar-brand">
-        <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Kider</h1>
-    </a>
+    <a href="/" class="navbar-brand d-flex align-items-center">
+    <img src="{% static 'img/img-removebg-preview.png' %}" alt="Haha Art" style="height:200px;" class="me-2">
+    <span class="fw-bold text-primary">Haha Art</span>
+</a>
 
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -44,27 +45,25 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto">
-            <a href="/" class="nav-item nav-link">Home</a>
-            <a href="{% url 'about:aboutus' %}" class="nav-item nav-link">About</a>
-            <a href="{% url 'classes:classes' %}" class="nav-item nav-link">Classes</a>
-            <a href="{% url 'franchise:franchise' %}" class="nav-item nav-link">Franchise</a>
+            <a href="/" class="nav-item nav-link">Trang chủ</a>
+            <a href="{% url 'about:aboutus' %}" class="nav-item nav-link">Về chúng tôi</a>
+            <a href="{% url 'classes:index' %}" class="nav-item nav-link">Khóa học</a>
+            <a href="{% url 'franchise:franchise' %}" class="nav-item nav-link">Nhượng quyền thuương mại</a>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Trang</a>
 
                 <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
                     
-                    <a href="{% url 'value:valueclassroom' %}" class="dropdown-item">Value Classroom</a>
-                    <a href="{% url 'regulation:classregulation' %}" class="dropdown-item">Class Regulation</a>
-                    <a href="{% url 'team:team' %}" class="dropdown-item">Our Team</a>
-                    <a href="{% url 'products:index' %}" class="dropdown-item">Products</a>
+                    <a href="{% url 'value:valueclassroom' %}" class="dropdown-item">Giá trị</a>
+                    <a href="{% url 'regulation:classregulation' %}" class="dropdown-item">Quy chế</a>
+                    <a href="{% url 'team:team' %}" class="dropdown-item">Đội ngũ</a>
+                    <a href="{% url 'products:index' %}" class="dropdown-item">Sản phẩm</a>
                 </div>
             </div>
-            <a href="/contact/" class="nav-item nav-link">Contact</a>
+            <a href="{% url 'contact:contact' %}" class="nav-item nav-link">Liên hệ</a>
         </div>
-        <a href="#" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">
-            Join Us <i class="fa fa-arrow-right ms-3"></i>
-        </a>
+
     </div>
 </nav>
 
@@ -79,23 +78,24 @@
         <div class="row g-5">
 
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Get In Touch</h3>
-                <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York</p>
-                <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <h3 class="text-white mb-4">Liên hệ</h3>
+                <p><i class="fa fa-phone-alt me-3"></i>+84 33 631 3011</p>
+                <p><i class="fa fa-envelope me-3"></i>lopvehahaart2021@gmail.com</p>
+                <p><a href="{% url 'contact:contact' %}" class="btn btn-link text-white-50">Liên hệ</a></p>
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Quick Links</h3>
-                <a class="btn btn-link text-white-50" href="#">About</a>
-                <a class="btn btn-link text-white-50" href="#">Contact</a>
-                <a class="btn btn-link text-white-50" href="#">Services</a>
+                <h3 class="text-white mb-4">Thông tin</h3>
+                 <a href="/" class="btn btn-link text-white-50">Trang chủ</a>
+            <a href="{% url 'about:aboutus' %}" class="btn btn-link text-white-50">Về chúng tôi</a>
+            <a href="{% url 'classes:index' %}" class="btn btn-link text-white-50">Khóa học</a>
+            <a href="{% url 'franchise:franchise' %}" class="btn btn-link text-white-50">Nhượng quyền thuương mại</a>
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Gallery</h3>
+                <h3 class="text-white mb-4">Tranh</h3>
                 <div class="row g-2 pt-2">
-                    
+
                     {% for p in products|slice:":3" %}
                     <div class="col-4">
                         <img class="img-fluid rounded bg-light p-1" src="{{ p.images.url }}" alt="{{ p.title }}">
@@ -105,7 +105,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Newsletter</h3>
+                <h3 class="text-white mb-4">Bản tin</h3>
                 <input class="form-control bg-transparent w-100 py-3" placeholder="Your email">
             </div>
 

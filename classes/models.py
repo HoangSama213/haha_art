@@ -16,3 +16,20 @@ class Classes(models.Model):
 
     def __str__(self):
         return self.title
+
+from django.db import models
+
+class Enrollment(models.Model):
+    guardian_name = models.CharField(max_length=255, verbose_name="Tên người giám hộ")
+    guardian_email = models.EmailField(verbose_name="Email người giám hộ")
+    child_name = models.CharField(max_length=255, verbose_name="Tên học viên")
+    child_age = models.CharField(max_length=50, verbose_name="Tuổi học viên")
+    message = models.TextField(blank=True, verbose_name="Ghi chú")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Đăng ký"
+        verbose_name_plural = "Đăng ký"
+
+    def __str__(self):
+        return f"{self.child_name} - {self.guardian_name}"

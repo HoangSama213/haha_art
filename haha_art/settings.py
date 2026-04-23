@@ -73,6 +73,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "main.context_processors.footer_products",
             ],
         },
     },
@@ -142,3 +143,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Media files (uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'thanhloc5226@gmail.com'
+EMAIL_HOST_PASSWORD = 'gyqi huhb idxe korg'
+DEFAULT_FROM_EMAIL = 'thanhloc5226@gmail.com'
+
+ADMIN_EMAIL = 'thanhloc5226@yourschool.com'

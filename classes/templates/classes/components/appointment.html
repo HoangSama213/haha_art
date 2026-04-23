@@ -1,3 +1,4 @@
+{% load static %}
 <!-- Appointment Start -->
 <div class="container-xxl py-5">
     <div class="container">
@@ -5,42 +6,52 @@
             <div class="row g-0">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
-                        <h1 class="mb-4">Make Appointment</h1>
-                        <form method="POST" action="#">
+                        <h1 class="mb-4">Đăng ký tham gia</h1>
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-3" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <form method="POST" action="{% url 'classes:register' %}">
                             {% csrf_token %}
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="gname" name="guardian_name" placeholder="Guardian Name">
-                                        <label for="gname">Guardian Name</label>
+                                        <input type="text" class="form-control border-0" id="gname" name="guardian_name" placeholder="Guardian Name" required>
+                                        <label for="gname">Tên người giám hộ</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control border-0" id="gmail" name="guardian_email" placeholder="Guardian Email">
-                                        <label for="gmail">Guardian Email</label>
+                                        <input type="email" class="form-control border-0" id="gmail" name="guardian_email" placeholder="Guardian Email" required>
+                                        <label for="gmail">Email người giám hộ</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="cname" name="child_name" placeholder="Child Name">
-                                        <label for="cname">Child Name</label>
+                                        <input type="text" class="form-control border-0" id="cname" name="child_name" placeholder="Child Name" required>
+                                        <label for="cname">Tên học viên</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="cage" name="child_age" placeholder="Child Age">
-                                        <label for="cage">Child Age</label>
+                                        <input type="text" class="form-control border-0" id="cage" name="child_age" placeholder="Child Age" required>
+                                        <label for="cage">Tuổi học viên</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea class="form-control border-0" placeholder="Leave a message here" id="message" name="message" style="height: 100px"></textarea>
-                                        <label for="message">Message</label>
+                                        <label for="message">Ghi chú</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Đăng ký</button>
                                 </div>
                             </div>
                         </form>
@@ -48,7 +59,9 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        {% comment %} <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/appointment.jpg' %}" style="object-fit: cover;"> {% endcomment %}
+                        <img class="position-absolute w-100 h-100 rounded"
+                             src="{% static 'img/img.png' %}"
+                             style="object-fit: cover;">
                     </div>
                 </div>
             </div>
