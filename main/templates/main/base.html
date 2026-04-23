@@ -1,7 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .addr-item { cursor: default; border-radius: 6px; padding-left: 0; }
+.addr-item:hover { background: rgba(255,255,255,0.05); padding-left: 6px; }
+.addr-item:hover .addr-dot { background: rgba(255,255,255,0.7) !important; }
+.addr-item:hover span:last-child { color: rgba(255,255,255,0.85) !important; }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.addr-item { animation: fadeInUp 0.3s ease both; }
+.addr-item:nth-child(n) { animation-delay: calc(0.03s * var(--i, 1)); }
+</style>
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Kider - Preschool Website{% endblock %}</title>
@@ -35,7 +47,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
     <a href="/" class="navbar-brand d-flex align-items-center">
-    <img src="{% static 'img/img-removebg-preview.png' %}" alt="Haha Art" style="height:200px;" class="me-2">
+    <img src="{% static 'img/img-removebg-preview.png' %}" alt="Haha Art" style="height:120px;" class="me-2">
     <span class="fw-bold text-primary">Haha Art</span>
 </a>
 
@@ -48,7 +60,7 @@
             <a href="/" class="nav-item nav-link">Trang chủ</a>
             <a href="{% url 'about:aboutus' %}" class="nav-item nav-link">Về chúng tôi</a>
             <a href="{% url 'classes:index' %}" class="nav-item nav-link">Khóa học</a>
-            <a href="{% url 'franchise:franchise' %}" class="nav-item nav-link">Nhượng quyền thuương mại</a>
+            <a href="{% url 'franchise:franchise' %}" class="nav-item nav-link">Nhượng quyền thương mại</a>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Trang</a>
@@ -74,43 +86,98 @@
 
 <!-- FOOTER -->
 <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-    <div class="container py-5">
-        <div class="row g-5">
+  <div class="container py-5">
+    <div class="row g-5">
 
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Liên hệ</h3>
-                <p><i class="fa fa-phone-alt me-3"></i>+84 33 631 3011</p>
-                <p><i class="fa fa-envelope me-3"></i>lopvehahaart2021@gmail.com</p>
-                <p><a href="{% url 'contact:contact' %}" class="btn btn-link text-white-50">Liên hệ</a></p>
-            </div>
+      <!-- Liên hệ -->
+      <div class="col-lg-3 col-md-6">
+        <h3 class="text-white mb-4">Liên hệ</h3>
+        <p><i class="fa fa-phone-alt me-3"></i>+84 33 631 3011</p>
+        <p><i class="fa fa-envelope me-3"></i>lopvehahaart2021@gmail.com</p>
+        <a href="{% url 'contact:contact' %}" class="btn btn-link text-white-50">→ Liên hệ với chúng tôi</a>
+      </div>
 
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Thông tin</h3>
-                 <a href="/" class="btn btn-link text-white-50">Trang chủ</a>
-            <a href="{% url 'about:aboutus' %}" class="btn btn-link text-white-50">Về chúng tôi</a>
-            <a href="{% url 'classes:index' %}" class="btn btn-link text-white-50">Khóa học</a>
-            <a href="{% url 'franchise:franchise' %}" class="btn btn-link text-white-50">Nhượng quyền thuương mại</a>
-            </div>
+      <!-- Thông tin -->
+      <div class="col-lg-3 col-md-6">
+        <h3 class="text-white mb-4">Thông tin</h3>
+        <a href="/" class="btn btn-link text-white-50">Trang chủ</a>
+        <a href="{% url 'about:aboutus' %}" class="btn btn-link text-white-50">Về chúng tôi</a>
+        <a href="{% url 'classes:index' %}" class="btn btn-link text-white-50">Khóa học</a>
+        <a href="{% url 'franchise:franchise' %}" class="btn btn-link text-white-50">Nhượng quyền thương mại</a>
+      </div>
 
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Tranh</h3>
-                <div class="row g-2 pt-2">
-
-                    {% for p in products|slice:":3" %}
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{{ p.images.url }}" alt="{{ p.title }}">
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Bản tin</h3>
-                <input class="form-control bg-transparent w-100 py-3" placeholder="Your email">
-            </div>
-
+      <!-- Tranh -->
+      <div class="col-lg-3 col-md-6">
+        <h3 class="text-white mb-4">Tranh</h3>
+        <div class="row g-2 pt-2">
+          {% for p in products|slice:":3" %}
+          <div class="col-4">
+            <img class="img-fluid rounded bg-light p-1" src="{{ p.images.url }}" alt="{{ p.title }}">
+          </div>
+          {% endfor %}
         </div>
+      </div>
+
+      <!-- Địa chỉ -->
+<div class="col-lg-3 col-md-6">
+  <div class="d-flex align-items-center gap-2 mb-4">
+    <h3 class="text-white mb-0">Địa chỉ</h3>
+    <span class="badge rounded-pill" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);font-size:11px;font-weight:400;">12 cơ sở</span>
+  </div>
+  <div class="addr-list">
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">1/18 Phòng Không, P. Nam Nha Trang</span>
     </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">1B Đồng Nai, P. Nam Nha Trang</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">62/36 Đặng Tất, P. Bắc Nha Trang</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">66 Nguyễn Trãi, Diên Khánh</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">156 Điện Biên Phủ, Cam Lâm, Cam Ranh</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">154 Đường 3/2, P. Tân An, TP. Cần Thơ</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">17C Y Wang, Buôn Ma Thuột</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">39/2 Võ Thị Sáu, P. Điện Hồng, Pleiku</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">142 Khu Phố 6, Trị An, Đồng Nai</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">Số 2 Nguyễn Trãi, KP24, P. Long Khánh, Đồng Nai</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">Căn B2-117 Tòa B2, CC Hacom Galacity, P. Phan Rang, Khánh Hòa</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">68 Nguyễn Văn Cừ, P. Tân Thắng, TP. HCM</span>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
 </div>
 
 <!-- JS - Bootstrap PHẢI load trước -->
