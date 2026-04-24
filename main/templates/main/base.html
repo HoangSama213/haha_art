@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -35,7 +36,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
     <a href="/" class="navbar-brand d-flex align-items-center">
-    <img src="{% static 'img/img-removebg-preview.png' %}" alt="Haha Art" style="height:200px;" class="me-2">
+    <img src="{% static 'img/img-removebg-preview.png' %}" alt="Haha Art" style="height:100px;" class="me-2">
     <span class="fw-bold text-primary">Haha Art</span>
 </a>
 
@@ -48,7 +49,7 @@
             <a href="/" class="nav-item nav-link">Trang chủ</a>
             <a href="{% url 'about:aboutus' %}" class="nav-item nav-link">Về chúng tôi</a>
             <a href="{% url 'classes:index' %}" class="nav-item nav-link">Khóa học</a>
-            <a href="{% url 'franchise:franchise' %}" class="nav-item nav-link">Nhượng quyền thuương mại</a>
+            <a href="{% url 'franchise:franchise' %}" class="nav-item nav-link">Nhượng quyền thương mại</a>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Trang</a>
@@ -58,7 +59,8 @@
                     <a href="{% url 'value:valueclassroom' %}" class="dropdown-item">Giá trị</a>
                     <a href="{% url 'regulation:classregulation' %}" class="dropdown-item">Quy chế</a>
                     <a href="{% url 'team:team' %}" class="dropdown-item">Đội ngũ</a>
-                    <a href="{% url 'products:index' %}" class="dropdown-item">Sản phẩm</a>
+                    <a href="{% url 'products:index' %}" class="dropdown-item">Tác phẩm</a>
+                    <a href="{% url 'new:index' %}" class="dropdown-item">Bảng tin</a>
                 </div>
             </div>
             <a href="{% url 'contact:contact' %}" class="nav-item nav-link">Liên hệ</a>
@@ -105,7 +107,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Bản tin</h3>
+                <h3 class="text-white mb-4">Bảng tin</h3>
                 <input class="form-control bg-transparent w-100 py-3" placeholder="Your email">
             </div>
 

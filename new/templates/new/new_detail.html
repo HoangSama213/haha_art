@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ news.title }}
+{% endblock %}
+
+{% block content %}
+{% include 'components/page_header.html' with title=page_title header_image='img/img_2.png' %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <article>
+                <h1 class="fw-bold text-primary mb-3">{{ news.title }}</h1>
+                <div class="d-flex align-items-center text-muted mb-4">
+                    <span class="me-3"><i class="far fa-calendar-alt"></i> {{ news.created_at|date:"d/m/Y H:i" }}</span>
+                    <span class="badge bg-light text-primary border"><i class="fas fa-tag"></i> {{ news.news_type.title }}</span>
+                </div>
+
+                <div class="news-section mb-4">
+                    {% if news.images_1 %}
+                        <img src="{{ news.images_1.url }}" class="img-fluid rounded shadow-sm mb-3 w-100" alt="{{ news.title }}">
+                    {% endif %}
+                    
+                    <div class="content-text fs-5" style="text-align: justify; line-height: 1.8;">
+                        {{ news.content_1|linebreaks }}
+                    </div>
+                </div>
+
+                <div class="news-section mb-4">
+                    <div class="row cols-md-6 g-3">
+                        <div class="col">
+                            <div class="content-text fs-5" style="text-align: justify; line-height: 1.8;">
+                                {{ news.content_2|linebreaks }}
+                            </div>
+                        </div>
+                        {% if news.images_2 %}
+                        <div class="col">
+                            <img src="{{ news.images_2.url }}" class="img-fluid rounded shadow-sm w-100" alt="Hình ảnh 2">
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if news.images_3 %}
+                <div class="news-section mb-4 text-center">
+                    <img src="{{ news.images_3.url }}" class="img-fluid rounded shadow-sm w-75" alt="Hình ảnh 3">
+                </div>
+                {% endif %}
+
+            </article>
+            
+            <hr class="my-5">
+            <a href="{% url 'new:index' %}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Quay lại bảng tin
+            </a>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="sticky-top" style="top: 100px; z-index: 1;">
+                <h4 class="fw-bold mb-4 ps-2 border-start border-primary border-4">Bài viết liên quan</h4>
+                
+                {% for related in related_news %}
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="{{ related.images_1.url }}" class="img-fluid rounded-start h-100" alt="{{ related.title }}" style="object-fit: cover;">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-1" style="font-size: 0.9rem;">
+                                    <a href="{% url 'new:detail' related.id %}" class="text-decoration-none text-dark fw-bold">
+                                        {{ related.title|truncatechars:50 }}
+                                    </a>
+                                </h6>
+                                <small class="text-muted" style="font-size: 0.8rem;">
+                                    {{ related.created_at|date:"d/m/Y" }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-muted ps-2">Không có bài viết liên quan nào.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

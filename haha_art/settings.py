@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "regulation",
     "team",
     "value",
+    'new',
 ]
 
 MIDDLEWARE = [

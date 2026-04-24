@@ -85,7 +85,7 @@ h4,
 .display-4,
 .display-5,
 .display-6 {
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Great Vibes', cursive;
     font-weight: 700;
 }
 
@@ -362,8 +362,8 @@ h6,
 
 .team-item .team-text {
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     bottom: 0;
     right: 0;
     display: flex;
