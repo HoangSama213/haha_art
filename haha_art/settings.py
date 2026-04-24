@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "team",
     "value",
     'new',
+    'brand_story',
 ]
 
 MIDDLEWARE = [

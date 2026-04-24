@@ -5,6 +5,7 @@ from product.models import Product
 from team.models import Teacher
 from regulation.models import *
 from about.models import *
+from brand_story.models import BrandStory
 
 
 
@@ -19,6 +20,7 @@ def index(request):
     products = Product.objects.all()
     teacher = Teacher.objects.all()
     classes = Classes.objects.all()
+    story = BrandStory.objects.filter(is_active=True).prefetch_related('points').first()
 
     context = {
         'carousels': carousels,  # ✅ QUAN TRỌNG
@@ -27,6 +29,7 @@ def index(request):
         'products': products,
         'teacher': teacher,
         'classes': classes,
+        'story': story,
     }
 
     return render(request, 'main/index.html', context)

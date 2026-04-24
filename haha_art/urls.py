@@ -17,5 +17,6 @@ urlpatterns = [
     path('products/', include('product.urls')),
     path('franchise/', include('franchise.urls')),
     path('news/', include('new.urls')),  # Thêm đường dẫn cho ứng dụng news
+    path('brand-story/', include('brand_story.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
