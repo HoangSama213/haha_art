@@ -1,0 +1,31 @@
+<div class="container my-5">
+    <h1 class="text-primary text-center wow fadeInUp" data-wow-delay="0.1s">Những điều bạn cần biết</h1>
+    <div class="row row-cols-3 mt-5">
+        <div class="col d-flex flex-column justify-content-between">
+            <div class="upper-content text-end p-3 pe-2 wow fadeInLeft" data-wow-delay="0.1s"
+            style="box-shadow: -5px 5px 10px 5px #fe5c37; 
+            border-radius: 10px 0px 10px 10px;">
+                <h1>{{ objects.title }}</h1>
+                <p>{{ objects.description|linebreaks }}</p>
+            </div>
+            
+            <div class="lower-content text-end p-3 pe-2 wow fadeInRight" data-wow-delay="0.1s" 
+            style="box-shadow: -5px 5px 10px 5px #fe5c37; 
+            border-radius: 10px 0px 10px 10px;">
+                <h1>{{ programs.title }}</h1>
+                <p>{{ programs.description|linebreaks }}</p>
+            </div>
+        </div>
+        <div class="col">
+            <img src="{{ content.image.url }}" alt="{{ programs.title }}" class="img-fluid wow fadeInUp" data-wow-delay="0.1s">
+        </div>
+        <div class="col d-flex align-items-center">
+            <div class="w-100 p-3 ps-2 wow fadeInRight" data-wow-delay="0.1s" 
+            style="box-shadow: 5px 5px 10px 5px #fe5c37;
+            border-radius: 0px 10px 10px 10px;">
+                <h1>{{ content.title }}</h1>
+                <p>{{ content.description|linebreaks }}</p>
+            </div>
+        </div>
+    </div>
+</div>

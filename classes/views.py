@@ -3,14 +3,20 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
-from classes.models import Classes, Enrollment
+from classes.models import *
 
 
 def index(request):
     classes = Classes.objects.all()
+    objects = Objects.objects.first()
+    programs = Programs.objects.first()
+    content = Content.objects.first()
     context = {
         'page_title': 'Khóa học',
         'classes': classes,
+        'objects': objects,
+        'programs': programs,
+        'content': content,
     }
     return render(request, 'classes/classes.html', context)
 
@@ -80,3 +86,15 @@ def detail(request, class_id):
         'class': class_obj,
     }
     return render(request, 'classes/classes_detail.html', context)
+
+def objects(request):
+    objects = Objects.objects.first()
+    programs = Programs.objects.first()
+    content = Content.objects.first()
+    context = {
+        'page_title': 'Đối tượng',
+        'objects': objects,
+        'programs': programs,
+        'content': content,
+    }
+    return render(request, 'classes/objects.html', context)

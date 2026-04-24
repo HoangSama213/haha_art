@@ -1,0 +1,112 @@
+<div class="container p-5">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+            <div class="mb-5 pb-4 border-bottom">
+                <h2 class="fw-bold text-primary display-6 mb-4 text-end wow fadeInLeft" data-wow-delay="0.1s" style="letter-spacing: -1px;">
+                    {{ benefit.title }}
+                </h2>
+                <div class="card-text text-muted text-end wow fadeInLeft" data-wow-delay='0.1s' style="white-space: pre-line; line-height: 1.8; font-size: 1.1rem; text-align: justify;">
+                    <p class="fw-bold">{{ benefit.desc_1|linebreaksbr }}</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="fw-bold text-success display-6 mb-4 wow fadeInRight" data-wow-delay="0.1s" style="letter-spacing: -1px;">
+                    {{ promote.title }}
+                </h2>
+                <div class="card-text text-muted wow fadeInRight" data-wow-delay='0.1s' style="white-space: pre-line; line-height: 1.8; font-size: 1.1rem; text-align: justify;">
+                    <p class="fw-bold">{{ promote.desc_1|linebreaksbr }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="art-overlap-container">
+                <div class="img-portrait shadow-lg wow fadeInDown" data-wow-delay="0.1s">
+                    <img src="{{ benefit.image_1.url }}" alt="{{ benefit.title }}">
+                </div>
+                
+                <div class="img-landscape shadow-2xl wow fadeInUp" data-wow-delay="0.1s">
+                    <img src="{{ promote.image_1.url }}" alt="{{ promote.title }}">
+                </div>
+                
+                <div class="art-circle-deco bg-primary opacity-10 wow fadeIn" data-wow-delay="0.1s">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Container ảnh */
+    .art-overlap-container {
+        position: relative;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Tấm ảnh đứng */
+    .img-portrait {
+        position: absolute;
+        width: 60%;
+        left: 5%;
+        top: 0;
+        z-index: 1;
+        transition: all 0.5s ease;
+    }
+    .img-portrait img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        border-radius: 30px; /* Bo góc cực đại cho hiện đại */
+    }
+
+    /* Tấm ảnh nằm */
+    .img-landscape {
+        position: absolute;
+        width: 75%;
+        right: 0;
+        bottom: 10%;
+        z-index: 2;
+        transition: all 0.5s ease;
+    }
+    .img-landscape img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        border-radius: 20px;
+        opacity: 0.9;
+    }
+
+    /* Decor hình tròn phía sau */
+    .art-circle-deco {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        z-index: 0;
+        top: 10%;
+        right: 10%;
+    }
+
+    /* Hiệu ứng Hover */
+    .art-overlap-container:hover .img-landscape {
+        transform: translateY(-20px) rotate(2deg);
+    }
+    .art-overlap-container:hover .img-portrait {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    /* Responsive cho mobile */
+    @media (max-width: 991px) {
+        .art-overlap-container {
+            height: 450px;
+            margin-top: 50px;
+        }
+        .img-portrait { width: 55%; }
+        .img-landscape { width: 70%; }
+    }
+</style>

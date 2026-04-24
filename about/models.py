@@ -30,3 +30,27 @@ class Different(models.Model):
 
     def __str__(self):
         return self.title
+
+class Benefit(models.Model):
+    title = models.CharField(max_length=200, default="Lợi ích khi tham gia HaHa Art")
+    desc_1 = models.TextField(blank=True,verbose_name="Nội dung")
+    image_1 = models.ImageField(upload_to='about/benefit/',verbose_name="Ảnh minh họa") 
+
+    class Meta:
+        verbose_name = "Lợi ích"
+        verbose_name_plural = "Lợi ích"
+
+    def __str__(self):
+        return self.title
+    
+class Promote(models.Model):
+    title = models.CharField(max_length=200, default="Ưu đãi khi tham gia HaHa Art")
+    desc_1 = models.TextField(blank=True,verbose_name="Nội dung")
+    image_1 = models.ImageField(upload_to='about/promote/',verbose_name="Ảnh minh họa") 
+
+    class Meta:
+        verbose_name = "Ưu đãi"
+        verbose_name_plural = "Ưu đãi"
+
+    def __str__(self):
+        return self.title

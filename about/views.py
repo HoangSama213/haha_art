@@ -11,6 +11,8 @@ def index(request):
     teacher = Teacher.objects.all()
     products = Product.objects.all()
     different = Different.objects.first()
+    benefit = Benefit.objects.first()
+    promote = Promote.objects.first()
     context = {
         'page_title': 'About Us',
         'about': about,
@@ -18,6 +20,8 @@ def index(request):
         'teacher': teacher,
         'products': products,
         'different': different,
+        'benefit': benefit,
+        'promote': promote,
     }
     return render(request, 'about/aboutus.html', context)
 
@@ -36,3 +40,13 @@ def different(request):
         'different': different,
     }
     return render(request, 'about/different.html', context)
+
+def benefit(request):
+    benefit = Benefit.objects.first()
+    promote = Promote.objects.first()
+    context = {
+        'page_title': 'Lợi ích',
+        'benefit': benefit,
+        'promote': promote,
+    }
+    return render(request, 'about/benefit.html', context)

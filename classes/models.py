@@ -10,6 +10,7 @@ class Classes(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Giá")
     image = models.ImageField(upload_to='classes/',verbose_name="Ảnh khóa học")
     description = models.TextField(verbose_name="Mô tả khóa học",blank=True)
+    levels = models.TextField(max_length=255, verbose_name="Cấp độ", blank=True)
 
     class Meta:
         verbose_name = "Khóa học"
@@ -34,3 +35,37 @@ class Enrollment(models.Model):
 
     def __str__(self):
         return f"{self.child_name} - {self.guardian_name}"
+    
+class Objects(models.Model):
+    title = models.CharField(max_length=255, verbose_name="Đối tượng")
+    description = models.TextField(verbose_name="Nội dung", blank=True)
+
+    class Meta:
+        verbose_name = "Đối tượng"
+        verbose_name_plural = "Đối tượng"
+
+    def __str__(self):
+        return self.title
+
+class Programs(models.Model):
+    title = models.CharField(max_length=255, verbose_name="Chương trình học")
+    description = models.TextField(verbose_name="Nội dung", blank=True)
+
+    class Meta:
+        verbose_name = "Chương trình học"
+        verbose_name_plural = "Chương trình học"
+
+    def __str__(self):
+        return self.title
+    
+class Content(models.Model):
+    title = models.CharField(max_length=255, verbose_name="Nội dung giảng dạy")
+    description = models.TextField(verbose_name="Mô tả", blank=True)
+    image = models.ImageField(upload_to='classes/content/', verbose_name="Ảnh minh họa", blank=True)
+
+    class Meta:
+        verbose_name = "Nội dung giảng dạy"
+        verbose_name_plural = "Nội dung giảng dạy"
+
+    def __str__(self):
+        return self.title
