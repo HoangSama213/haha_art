@@ -19,4 +19,14 @@ class AboutSection(models.Model):
     def __str__(self):
         return self.title
 
+class Different(models.Model):
+    title = models.CharField(max_length=200, default="Điểm khác biệt của HaHa Art")
+    desc_1 = models.TextField(blank=True,verbose_name="Nội dung")
+    image_1 = models.ImageField(upload_to='about/different/',verbose_name="Ảnh minh họa") 
 
+    class Meta:
+        verbose_name = "Điểm khác biệt"
+        verbose_name_plural = "Điểm khác biệt"
+
+    def __str__(self):
+        return self.title

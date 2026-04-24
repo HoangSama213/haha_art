@@ -10,12 +10,14 @@ def index(request):
     policy = TrainingPolicy.objects.first()
     teacher = Teacher.objects.all()
     products = Product.objects.all()
+    different = Different.objects.first()
     context = {
         'page_title': 'About Us',
         'about': about,
         'policy':policy,
         'teacher': teacher,
         'products': products,
+        'different': different,
     }
     return render(request, 'about/aboutus.html', context)
 
@@ -26,3 +28,11 @@ def introduce(request):
         'about': about,
     }
     return render(request, 'about/introduce.html', context)
+
+def different(request):
+    different = Different.objects.first()
+    context = {
+        'page_title': 'Điểm khác biệt',
+        'different': different,
+    }
+    return render(request, 'about/different.html', context)
