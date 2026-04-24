@@ -8,6 +8,6 @@ __pycache__/
 # Env
 .env
 
-# Django
-/media/
-staticfiles/
+# # Django
+# /media/
+# staticfiles/
