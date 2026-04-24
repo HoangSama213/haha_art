@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Chi tiết khóa học{% endblock %}
+
+{% block content %}
+<!-- Page Header Start -->
+{% include 'components/page_header.html' with title=page_title header_image='img/img_3.png' %}
+<!-- Page Header End -->
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-6">
+            <h1 class="fw-bold text-uppercase border-bottom pb-3 wow fadeInUp" data-wow-delay="0.1s" style="color: #fe5d37;">{{ class.title }}</h1>
+        </div>
+        <div class="col-6 text-end ">
+            <a href="{% url 'classes:index' %}" class="btn btn-primary py-2 px-4 wow fadeInUp" data-wow-delay="0.1s">Quay lại</a>
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <div class="pe-lg-4 wow fadeInUp" data-wow-delay="0.1s" style="white-space: pre-line; font-size: 1.1rem; line-height: 1.8;">
+                {{ class.description|linebreaksbr }}
+            </div>
+        </div>
+
+        <div class="col-lg-5 mt-4 mt-lg-0">
+            <div class="shadow-sm rounded overflow-hidden">
+                <img src="{{ class.image.url }}" 
+                     alt="{{ class.title }}" 
+                     class="img-fluid w-100 wow fadeInUp" 
+                     data-wow-delay="0.1s"
+                     style="object-fit: cover; transition: transform 0.3s;">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'classes/components/appointment.html' %}
+{% endblock %}

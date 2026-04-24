@@ -9,6 +9,7 @@ class Classes(models.Model):
     quantity = models.IntegerField(verbose_name="Số lượng học viên")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Giá")
     image = models.ImageField(upload_to='classes/',verbose_name="Ảnh khóa học")
+    description = models.TextField(verbose_name="Mô tả khóa học",blank=True)
 
     class Meta:
         verbose_name = "Khóa học"

@@ -27,6 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -48,7 +49,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
     <a href="/" class="navbar-brand d-flex align-items-center">
-    <img src="{% static 'img/img-removebg-preview.png' %}" alt="Haha Art" style="height:200px;" class="me-2">
+    <img src="{% static 'img/img-removebg-preview.png' %}" alt="Haha Art" style="height:120px;" class="me-2">
     <span class="fw-bold text-primary">Haha Art</span>
 </a>
 
@@ -87,6 +88,7 @@
 
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
   <div class="container py-5">
     <div class="row g-5">
@@ -120,10 +122,63 @@
         </div>
       </div>
 
-            <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Bản tin</h3>
-                <input class="form-control bg-transparent w-100 py-3" placeholder="Your email">
-            </div>
+      <!-- Địa chỉ -->
+<div class="col-lg-3 col-md-6">
+  <div class="d-flex align-items-center gap-2 mb-4">
+    <h3 class="text-white mb-0">Địa chỉ</h3>
+    <span class="badge rounded-pill" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);font-size:11px;font-weight:400;">12 cơ sở</span>
+  </div>
+  <div class="addr-list">
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">1/18 Phòng Không, P. Nam Nha Trang</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">1B Đồng Nai, P. Nam Nha Trang</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">62/36 Đặng Tất, P. Bắc Nha Trang</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">66 Nguyễn Trãi, Diên Khánh</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">156 Điện Biên Phủ, Cam Lâm, Cam Ranh</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">154 Đường 3/2, P. Tân An, TP. Cần Thơ</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">17C Y Wang, Buôn Ma Thuột</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">39/2 Võ Thị Sáu, P. Điện Hồng, Pleiku</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">142 Khu Phố 6, Trị An, Đồng Nai</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">Số 2 Nguyễn Trãi, KP24, P. Long Khánh, Đồng Nai</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2" style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">Căn B2-117 Tòa B2, CC Hacom Galacity, P. Phan Rang, Khánh Hòa</span>
+    </div>
+    <div class="addr-item d-flex align-items-start gap-2 py-2">
+      <span class="addr-dot" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);flex-shrink:0;margin-top:5px;"></span>
+      <span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.5);">68 Nguyễn Văn Cừ, P. Tân Thắng, TP. HCM</span>
+    </div>
+  </div>
+</div>
 
     </div>
   </div>

@@ -67,3 +67,16 @@ Ghi chú: {note}""",
         return redirect('classes:index')
 
     return redirect('classes:index')
+
+def detail(request, class_id):
+    try:
+        class_obj = Classes.objects.get(id=class_id)
+    except Classes.DoesNotExist:
+        messages.error(request, 'Lớp học không tồn tại.')
+        return redirect('classes:index')
+
+    context = {
+        'page_title': class_obj.title,
+        'class': class_obj,
+    }
+    return render(request, 'classes/classes_detail.html', context)

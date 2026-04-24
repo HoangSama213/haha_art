@@ -7,4 +7,5 @@ app_name = 'classes'
 urlpatterns = [
     path('', views.index, name='index'),
     path('register/', views.register, name='register'),
+    path('detail/<int:class_id>/', views.detail, name='detail'),
 ]
