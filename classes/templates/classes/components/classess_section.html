@@ -18,7 +18,7 @@
                         style="min-height: 70px; display: flex !important; align-items: center; justify-content: center;">
                             {{ class.title }}
                         </a>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
+                        {% comment %} <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="d-flex align-items-center">
                                 <img class="rounded-circle flex-shrink-0" src="{{ class.teacher.photo.url }}" alt="" style="width: 45px; height: 45px;">
                                 <div class="ms-3">
@@ -47,7 +47,7 @@
                                     <small>{{ class.quantity }} Bé</small>
                                 </div>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>
