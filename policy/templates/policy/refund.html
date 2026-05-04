@@ -1,0 +1,117 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Chính sách hoàn trả - IP Leader{% endblock %}
+
+{% block content %}
+{% include 'components/page_header.html' with title=page_title header_image='img/img_3.png' %}
+    <div class="container-fluid py-5">
+        <div class="row g-5">
+            <div class="col-lg-12">
+                <div class="container">
+
+                    <style>
+                        .doc-wrap { max-width: 860px; margin: 0 auto; font-family: inherit; color: #212529; }
+                        .doc-header { text-align: center; margin-bottom: 2.5rem; }
+                        .doc-header h1 { font-size: 28px; font-weight: 600; margin: 0 0 6px; }
+                        .doc-header p { font-size: 14px; color: #6c757d; margin: 0; }
+                        .doc-section { margin-bottom: 2.2rem; }
+                        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; padding-bottom: 10px; border-bottom: 1px solid #dee2e6; }
+                        .section-badge { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+                        .badge-amber { background: #FAEEDA; color: #633806; }
+                        .badge-blue  { background: #E6F1FB; color: #0C447C; }
+                        .section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #343a40; }
+                        .section-body { font-size: 15px; line-height: 1.85; color: #343a40; }
+                        .section-body p { margin: 0 0 0.8rem; }
+                        .bullet-list { display: flex; flex-direction: column; gap: 6px; margin: 0.5rem 0 0; }
+                        .bullet-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 13px; border-radius: 6px; font-size: 14px; line-height: 1.65; }
+                        .bullet-item .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+                        .bullet-amber { background: #FEF6E8; color: #633806; }
+                        .bullet-amber .dot { background: #BA7517; }
+
+                        /* Quy trình step */
+                        .step-row { display: flex; gap: 14px; margin-bottom: 1.1rem; align-items: flex-start; }
+                        .step-num { width: 30px; height: 30px; border-radius: 50%; background: #E6F1FB; color: #0C447C; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+                        .step-body { font-size: 15px; line-height: 1.85; flex: 1; }
+
+                        /* Hộp liên hệ */
+                        .contact-box { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 14px 18px; font-size: 14px; line-height: 2; margin-top: 8px; color: #495057; }
+                        .contact-box a { color: #185FA5; text-decoration: none; }
+                        .contact-box strong { font-weight: 600; color: #343a40; }
+
+                        .doc-footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dee2e6; display: flex; justify-content: flex-end; font-size: 14px; color: #6c757d; line-height: 1.8; text-align: right; }
+                    </style>
+
+                    <div class="doc-wrap">
+
+                        <div class="doc-header">
+                            <h1>Chính sách hoàn trả</h1>
+                            <p>haha-art.vn — HAHA-ART</p>
+                        </div>
+
+                        <!-- 1. Điều kiện hoàn trả -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-amber">1</div>
+                                <span class="section-title">Điều kiện hoàn trả dịch vụ và hoàn tiền</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Phí dịch vụ sẽ được hoàn lại với các điều kiện sau đây:</p>
+                                <div class="bullet-list">
+                                    <div class="bullet-item bullet-amber">
+                                        <div class="dot"></div>
+                                        <span>Không hoàn tất dịch vụ cung cấp</span>
+                                    </div>
+                                    <div class="bullet-item bullet-amber">
+                                        <div class="dot"></div>
+                                        <span>Không đúng tiến độ thực hiện do lỗi của HAHA-ART</span>
+                                    </div>
+                                    <div class="bullet-item bullet-amber">
+                                        <div class="dot"></div>
+                                        <span>Dịch vụ cung cấp không đúng như yêu cầu của Người Dùng</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Quy trình hoàn trả -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-blue">2</div>
+                                <span class="section-title">Quy trình hoàn trả</span>
+                            </div>
+                            <div class="section-body">
+                                <div class="step-row">
+                                    <div class="step-num">1</div>
+                                    <div class="step-body">
+                                        Khi có các điều kiện nêu trên, khách hàng vui lòng liên hệ trực tiếp với HAHA-ART để được hỗ trợ hoàn trả dịch vụ và hoàn tiền. Mọi thắc mắc về chính sách đổi trả, vui lòng liên hệ:
+                                        <div class="contact-box">
+                                            Hotline: <strong>(+84) 0336 313 011</strong><br>
+                                            Các cơ sở giáo dục của HAHA-ART.<br>
+                                            Email: <a href="mailto:info.hahaart@gmail.com">info.hahaart@gmail.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-row">
+                                    <div class="step-num">2</div>
+                                    <div class="step-body">
+                                        Mọi thắc mắc về chính sách đổi trả, vui lòng liên hệ:
+                                        <div class="contact-box">
+                                            Hotline: <strong>(+84) 0336 313 011</strong><br>
+                                            Email: <a href="mailto:info.hahaart@gmail.com">info.hahaart@gmail.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-footer">
+                            <div>Giám đốc<br><strong>Lê Thị A</strong></div>
+                        </div>
+
+                    </div><!-- /.doc-wrap -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

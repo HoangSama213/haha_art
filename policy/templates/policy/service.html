@@ -1,0 +1,179 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Chính sách - IP Leader{% endblock %}
+
+{% block content %}
+{% include 'components/page_header.html' with title=page_title header_image='img/img_3.png' %}
+    <div class="container-fluid py-5">
+        <div class="row g-5">
+            <div class="col-lg-12">
+                <div class="container">
+
+                    <style>
+                        .doc-wrap { max-width: 860px; margin: 0 auto; font-family: inherit; color: #212529; }
+                        .doc-header { text-align: center; margin-bottom: 2.5rem; }
+                        .doc-header h1 { font-size: 28px; font-weight: 600; margin: 0 0 6px; }
+                        .doc-header p { font-size: 14px; color: #6c757d; margin: 0; }
+                        .doc-section { margin-bottom: 2.2rem; }
+                        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; padding-bottom: 10px; border-bottom: 1px solid #dee2e6; }
+                        .section-badge { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+                        .badge-purple { background: #EEEDFE; color: #3C3489; }
+                        .badge-teal   { background: #E1F5EE; color: #085041; }
+                        .badge-blue   { background: #E6F1FB; color: #0C447C; }
+                        .badge-amber  { background: #FAEEDA; color: #633806; }
+                        .badge-green  { background: #EAF3DE; color: #27500A; }
+                        .section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #343a40; }
+                        .section-body { font-size: 15px; line-height: 1.85; color: #343a40; }
+                        .section-body p { margin: 0 0 0.8rem; }
+                        .clause { display: flex; gap: 10px; margin-bottom: 0.75rem; }
+                        .clause-num { font-weight: 600; color: #6c757d; font-size: 14px; min-width: 20px; padding-top: 2px; }
+                        .clause-text { font-size: 15px; line-height: 1.85; flex: 1; }
+                        .forbidden-list { display: flex; flex-direction: column; gap: 6px; margin-left: 30px; margin-bottom: 0.75rem; }
+                        .forbidden-item { display: flex; align-items: flex-start; gap: 8px; padding: 8px 12px; background: #fff5f5; border-radius: 6px; font-size: 14px; line-height: 1.65; color: #501313; }
+                        .forbidden-dot { width: 6px; height: 6px; border-radius: 50%; background: #E24B4A; flex-shrink: 0; margin-top: 7px; }
+                        .step-row { display: flex; gap: 14px; margin-bottom: 1.1rem; align-items: flex-start; }
+                        .step-num { width: 30px; height: 30px; border-radius: 50%; background: #E6F1FB; color: #0C447C; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+                        .step-body { font-size: 15px; line-height: 1.85; flex: 1; }
+                        .contact-box { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px 16px; font-size: 14px; line-height: 2; margin-top: 8px; color: #495057; }
+                        .contact-box a { color: #185FA5; text-decoration: none; }
+                        .doc-footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dee2e6; display: flex; justify-content: flex-end; font-size: 14px; color: #6c757d; line-height: 1.8; text-align: right; }
+                    </style>
+
+                    <div class="doc-wrap">
+
+                        <div class="doc-header">
+                            <h1>Điều khoản sử dụng</h1>
+                            <p>haha-art.vn — HAHA-ART</p>
+                        </div>
+
+                        <!-- I. NGUYÊN TẮC CHUNG -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-purple">I</div>
+                                <span class="section-title">Nguyên tắc chung</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Trước khi sử dụng trang haha-art.vn, vui lòng đọc kỹ Điều khoản sử dụng và các Chính sách để hiểu rõ quyền lợi và nghĩa vụ hợp pháp của mình đối với HAHA-ART. Sau đây, chúng tôi được gọi là "HAHA-ART", "haha-art.vn", "HAHA-ART" hoặc "chúng tôi".</p>
+                                <div class="clause">
+                                    <span class="clause-num">1.</span>
+                                    <span class="clause-text">"Dịch vụ" bao gồm tất cả thông tin, đường dẫn, tính năng, dữ liệu, nội dung, phần mềm và các tài liệu khác trên haha-art.vn hoặc bất kỳ tính năng mới nào được bổ sung.</span>
+                                </div>
+                                <div class="clause">
+                                    <span class="clause-num">2.</span>
+                                    <span class="clause-text">Điều khoản sử dụng này áp dụng đối với tất cả người dùng truy cập, yêu cầu cung cấp dịch vụ trên trang haha-art.vn.</span>
+                                </div>
+                                <div class="clause">
+                                    <span class="clause-num">3.</span>
+                                    <span class="clause-text">HAHA-ART có thể tạm dừng, sửa đổi hoặc gián đoạn bất kỳ khía cạnh nào của website bất kỳ lúc nào, kể cả hạn chế quyền truy cập mà không cần thông báo trước.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- II. QUYỀN SỞ HỮU TRÍ TUỆ -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-teal">II</div>
+                                <span class="section-title">Quyền sở hữu trí tuệ</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Tất cả hình ảnh và thông tin trên trang haha-art.vn đều được bảo vệ bởi luật bản quyền hoặc các quyền sở hữu công nghiệp khác. Tất cả tên dịch vụ là thương hiệu của HAHA-ART. Việc sử dụng hoặc sao chép cho mục đích thương mại phải có sự chấp thuận trước bằng văn bản.</p>
+                            </div>
+                        </div>
+
+                        <!-- III. QUYỀN SỬ DỤNG -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-blue">III</div>
+                                <span class="section-title">Quyền sử dụng</span>
+                            </div>
+                            <div class="section-body">
+                                <div class="clause">
+                                    <span class="clause-num">1.</span>
+                                    <span class="clause-text">HAHA-ART cấp cho khách hàng ("Người Dùng") quyền truy cập thông tin trên website và hiển thị trên thiết bị đầu cuối.</span>
+                                </div>
+                                <div class="clause">
+                                    <span class="clause-num">2.</span>
+                                    <span class="clause-text">Người Dùng có thể xem và tải thông tin chỉ với mục đích cá nhân, phi thương mại. Nội dung sao chép vẫn thuộc quyền sở hữu của HAHA-ART.</span>
+                                </div>
+                                <div class="clause">
+                                    <span class="clause-num">3.</span>
+                                    <span class="clause-text">Quyền sử dụng sẽ bị chấm dứt nếu Người Dùng vi phạm bất cứ điều khoản nào. Chúng tôi có thể chấm dứt bằng thông báo hoặc không cần thông báo.</span>
+                                </div>
+                                <div class="clause">
+                                    <span class="clause-num">4.</span>
+                                    <span class="clause-text">Người Dùng không được phép thực hiện các hành vi sau:</span>
+                                </div>
+                                <div class="forbidden-list">
+                                    <div class="forbidden-item"><div class="forbidden-dot"></div><span>Gây cản trở hoạt động của trang web bằng bất kỳ phương thức nào</span></div>
+                                    <div class="forbidden-item"><div class="forbidden-dot"></div><span>Tải lên các chương trình vi tính độc hại</span></div>
+                                    <div class="forbidden-item"><div class="forbidden-dot"></div><span>Dỡ bỏ bản quyền hoặc các thông báo sở hữu khỏi thông tin tải xuống</span></div>
+                                    <div class="forbidden-item"><div class="forbidden-dot"></div><span>Sử dụng thông tin cho mục đích quảng cáo, thương mại, hoặc sao chép, phát tán trái phép</span></div>
+                                    <div class="forbidden-item"><div class="forbidden-dot"></div><span>Tiết lộ thông tin trên trang web cho bên thứ ba khi chưa được sự đồng ý</span></div>
+                                    <div class="forbidden-item"><div class="forbidden-dot"></div><span>Vi phạm quyền sở hữu trí tuệ và các quyền khác của HAHA-ART</span></div>
+                                </div>
+                                <div class="clause">
+                                    <span class="clause-num">5.</span>
+                                    <span class="clause-text">Khi có yêu cầu từ cơ quan nhà nước có thẩm quyền, HAHA-ART có thể truy cập, duy trì và tiết lộ thông tin của Người Dùng theo quy định pháp luật.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- IV. KHIẾU NẠI -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-amber">IV</div>
+                                <span class="section-title">Khiếu nại</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Chúng tôi cam kết giải quyết khiếu nại của khách hàng một cách nhanh chóng và hiệu quả. Vui lòng làm theo các bước sau:</p>
+                                <div class="step-row">
+                                    <div class="step-num">1</div>
+                                    <div class="step-body">
+                                        <strong>Liên hệ trực tiếp với chúng tôi:</strong>
+                                        <div class="contact-box">
+                                            Email: <a href="mailto:info.haha-art@gmail.com">info.haha-art@gmail.com</a><br>
+                                            Hotline: (+84) 033 631 3011<br>
+                                            Cơ sở chính: 156 Điện Biên Phủ, Phường Cam Lộc, Tỉnh Khánh Hòa<br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-row">
+                                    <div class="step-num">2</div>
+                                    <div class="step-body">Bộ phận Chăm sóc khách hàng sẽ phản hồi trong vòng <strong>03 ngày làm việc</strong> kể từ ngày tiếp nhận và đề xuất giải pháp phù hợp.</div>
+                                </div>
+                                <div class="step-row">
+                                    <div class="step-num">3</div>
+                                    <div class="step-body">Trường hợp vượt quá thẩm quyền của chúng tôi, vụ việc sẽ được đưa ra cơ quan Nhà nước có thẩm quyền giải quyết theo <strong>pháp luật Việt Nam</strong>.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- V. ĐIỀU KHOẢN CUỐI CÙNG -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-green">V</div>
+                                <span class="section-title">Điều khoản cuối cùng</span>
+                            </div>
+                            <div class="section-body">
+                                <div class="clause">
+                                    <span class="clause-num">1.</span>
+                                    <span class="clause-text">HAHA-ART có quyền chỉnh sửa Điều khoản sử dụng này bất kỳ lúc nào. Việc Người Dùng tiếp tục sử dụng trang sau khi thay đổi được đăng tải đồng nghĩa với việc chấp nhận các điều khoản mới.</span>
+                                </div>
+                                <div class="clause">
+                                    <span class="clause-num">2.</span>
+                                    <span class="clause-text">Mọi ý kiến hay thắc mắc liên quan đến Điều khoản sử dụng, vui lòng liên hệ qua email: <a href="mailto:info.haha-art@gmail.com">info.haha-art@gmail.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-footer">
+                            <div>Giám đốc<br><strong>Lê Thị A</strong></div>
+                        </div>
+
+                    </div><!-- /.doc-wrap -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

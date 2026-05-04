@@ -1,0 +1,188 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Chính sách bảo mật - IP Leader{% endblock %}
+
+{% block content %}
+{% include 'components/page_header.html' with title=page_title header_image='img/img_3.png' %}
+    <div class="container-fluid py-5">
+        <div class="row g-5">
+            <div class="col-lg-12">
+                <div class="container">
+
+                    <style>
+                        .doc-wrap { max-width: 860px; margin: 0 auto; font-family: inherit; color: #212529; }
+                        .doc-header { text-align: center; margin-bottom: 2.5rem; }
+                        .doc-header h1 { font-size: 28px; font-weight: 600; margin: 0 0 6px; }
+                        .doc-header p { font-size: 14px; color: #6c757d; margin: 0; }
+                        .doc-section { margin-bottom: 2.2rem; }
+                        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; padding-bottom: 10px; border-bottom: 1px solid #dee2e6; }
+                        .section-badge { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex-shrink: 0; }
+                        .badge-purple { background: #EEEDFE; color: #3C3489; }
+                        .badge-teal   { background: #E1F5EE; color: #085041; }
+                        .badge-blue   { background: #E6F1FB; color: #0C447C; }
+                        .badge-amber  { background: #FAEEDA; color: #633806; }
+                        .badge-green  { background: #EAF3DE; color: #27500A; }
+                        .badge-coral  { background: #FAECE7; color: #712B13; }
+                        .badge-pink   { background: #FBEAF0; color: #72243E; }
+                        .section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #343a40; }
+                        .section-body { font-size: 15px; line-height: 1.85; color: #343a40; }
+                        .section-body p { margin: 0 0 0.8rem; }
+                        .bullet-list { display: flex; flex-direction: column; gap: 6px; margin: 0.5rem 0 0.75rem 0; }
+                        .bullet-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 13px; border-radius: 6px; font-size: 14px; line-height: 1.65; }
+                        .bullet-item .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+                        .bullet-blue   { background: #EBF4FD; color: #0C447C; }
+                        .bullet-blue .dot { background: #378ADD; }
+                        .bullet-teal   { background: #E6F7F2; color: #085041; }
+                        .bullet-teal .dot { background: #1D9E75; }
+                        .bullet-amber  { background: #FEF6E8; color: #633806; }
+                        .bullet-amber .dot { background: #BA7517; }
+                        .bullet-red    { background: #fff5f5; color: #501313; }
+                        .bullet-red .dot { background: #E24B4A; }
+                        .clause { display: flex; gap: 10px; margin-bottom: 0.75rem; }
+                        .clause-num { font-weight: 600; color: #6c757d; font-size: 14px; min-width: 20px; padding-top: 2px; }
+                        .clause-text { font-size: 15px; line-height: 1.85; flex: 1; }
+                        .info-box { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 14px 18px; font-size: 14px; line-height: 2; color: #495057; }
+                        .info-box a { color: #185FA5; text-decoration: none; }
+                        .info-box strong { font-weight: 600; color: #343a40; }
+                        .doc-footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dee2e6; display: flex; justify-content: flex-end; font-size: 14px; color: #6c757d; line-height: 1.8; text-align: right; }
+                    </style>
+
+                    <div class="doc-wrap">
+
+                        <div class="doc-header">
+                            <h1>Chính sách bảo mật</h1>
+                            <p>haha-art.vn — HAHA-ART</p>
+                        </div>
+
+                        <!-- Giới thiệu -->
+                        <div class="doc-section">
+                            <div class="section-body">
+                                <p>Website <a href="https://haha-art.vn" style="color:#185FA5;">haha-art.vn</a> được điều hành bởi HAHA-ART, sau đây gọi chung là "trang haha-art.vn", "Chúng tôi".</p>
+                            </div>
+                        </div>
+
+                        <!-- 1. Người Dùng & Đồng ý -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-purple">1</div>
+                                <span class="section-title">Người Dùng & Đồng ý tiết lộ thông tin</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Người Dùng là những khách hàng truy cập vào trang haha-art.vn.</p>
+                                <div class="bullet-list">
+                                    <div class="bullet-item bullet-blue">
+                                        <div class="dot"></div>
+                                        <span>Bằng việc truy cập và/hoặc yêu cầu cung cấp dịch vụ trên haha-art.vn, Người Dùng đã đồng ý với các điều khoản sử dụng, cũng như các quy định về thu thập, sử dụng, tiết lộ và xử lý dữ liệu cá nhân theo cách được mô tả trong tài liệu này.</span>
+                                    </div>
+                                    <div class="bullet-item bullet-amber">
+                                        <div class="dot"></div>
+                                        <span>Nếu Người Dùng không đồng ý tiết lộ thông tin cá nhân sẽ không thể đăng ký yêu cầu cung cấp dịch vụ trên haha-art.vn.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Mục đích thu thập -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-teal">2</div>
+                                <span class="section-title">Mục đích thu thập thông tin cá nhân</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Thông tin cá nhân thu thập được sẽ sử dụng cho các mục đích sau:</p>
+                                <div class="bullet-list">
+                                    <div class="bullet-item bullet-teal"><div class="dot"></div><span>Cung cấp thông tin cho việc cung cấp dịch vụ trên trang haha-art.vn</span></div>
+                                    <div class="bullet-item bullet-teal"><div class="dot"></div><span>Phục vụ cho các dịch vụ chăm sóc khách hàng</span></div>
+                                    <div class="bullet-item bullet-teal"><div class="dot"></div><span>Cải thiện trải nghiệm trên trang haha-art.vn dựa trên dữ liệu tìm kiếm</span></div>
+                                    <div class="bullet-item bullet-teal"><div class="dot"></div><span>Ngăn ngừa các hành vi giả mạo</span></div>
+                                    <div class="bullet-item bullet-teal"><div class="dot"></div><span>Các mục đích khác được quy định theo pháp luật hiện hành</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Thông tin được thu thập -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-blue">3</div>
+                                <span class="section-title">Những thông tin cá nhân được thu thập</span>
+                            </div>
+                            <div class="section-body">
+                                <div class="bullet-list">
+                                    <div class="bullet-item bullet-blue"><div class="dot"></div><span>Họ tên</span></div>
+                                    <div class="bullet-item bullet-blue"><div class="dot"></div><span>Địa chỉ email</span></div>
+                                    <div class="bullet-item bullet-blue"><div class="dot"></div><span>Ngày sinh</span></div>
+                                    <div class="bullet-item bullet-blue"><div class="dot"></div><span>Số điện thoại di động</span></div>
+                                    <div class="bullet-item bullet-blue"><div class="dot"></div><span>Số liệu tổng hợp về lịch sử thao tác của người dùng</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Tiết lộ & Sử dụng -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-amber">4</div>
+                                <span class="section-title">Tiết lộ và sử dụng thông tin cá nhân</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Chúng tôi sẽ không tiết lộ thông tin cá nhân cho bên thứ ba khi không có sự đồng ý, ngoại trừ các trường hợp sau:</p>
+                                <div class="bullet-list">
+                                    <div class="bullet-item bullet-amber"><div class="dot"></div><span>Trường hợp đã nhận được sự đồng ý từ trước của cá nhân đó trong việc tiết lộ và sử dụng các thông tin cần thiết</span></div>
+                                    <div class="bullet-item bullet-amber"><div class="dot"></div><span>Trường hợp việc tiết lộ và sử dụng thông tin cá nhân được pháp luật cho phép</span></div>
+                                    <div class="bullet-item bullet-amber"><div class="dot"></div><span>Trường hợp cần thiết cho việc bảo vệ tính mạng, sức khỏe, tài sản mà khó nhận được sự đồng ý của người đó</span></div>
+                                    <div class="bullet-item bullet-amber"><div class="dot"></div><span>Trường hợp cần thiết phải hợp tác để thực hiện một yêu cầu pháp lý từ cơ quan nhà nước, chính quyền địa phương hoặc người được ủy quyền theo đúng pháp luật</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Thời gian lưu trữ -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-green">5</div>
+                                <span class="section-title">Thời gian lưu trữ thông tin cá nhân</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Thời gian lưu trữ là <strong>một năm</strong> trừ khi có yêu cầu khác của cơ quan nhà nước.</p>
+                            </div>
+                        </div>
+
+                        <!-- 6. Đơn vị thu thập -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-coral">6</div>
+                                <span class="section-title">Đơn vị thu thập và quản lý thông tin</span>
+                            </div>
+                            <div class="section-body">
+                                <div class="info-box">
+                                    <strong>Lớp Vẽ HAHA-ART</strong><br>
+                                    Giấy chứng nhận ĐKDN số ... do Sở Kế hoạch và Đầu tư TP.HCM cấp lần đầu ngày ../../....<br>
+                                    Cơ sở chính: 156 Điện Biên Phủ, Phường Cam Lộc, Tỉnh Khánh Hòa<br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. Liên hệ -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-pink">7</div>
+                                <span class="section-title">Liên hệ, giải đáp thắc mắc</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Chính sách bảo mật này có thể được sửa đổi và bổ sung vào bất kỳ thời điểm nào khi cần thiết mà không cần thông báo trước.</p>
+                                <div class="info-box">
+                                    Hotline: <strong>(+84) 033 631 3011</strong><br>
+                                    Email: <a href="mailto:info.haha-art@gmail.com">info.haha-art@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-footer">
+                            <div>Giám đốc<br><strong>Lê Thị A</strong></div>
+                        </div>
+
+                    </div><!-- /.doc-wrap -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

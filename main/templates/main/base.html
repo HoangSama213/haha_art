@@ -134,10 +134,10 @@
         <h3 class="text-white mb-4">Chính sách </h3>
         <div class="row g-2 pt-2">
             <a href="{% url 'contact:contact' %}"  class="btn btn-link text-white-50">Liên hệ</a>
-            <a href="#" class="btn btn-link text-white-50">Điều khoản sử dụng</a>
-            <a href="#"class="btn btn-link text-white-50">Chính sách bảo mật</a>
-            <a href="#" class="btn btn-link text-white-50">Chính sách thanh toán</a>
-            <a href="#" class="btn btn-link text-white-50">Chính sách hoàn trả</a>
+            <a href="{% url 'policy:service' %}" class="btn btn-link text-white-50">Điều khoản sử dụng</a>
+            <a href="{% url 'policy:privacy' %}"class="btn btn-link text-white-50">Chính sách bảo mật</a>
+            <a href="{% url 'policy:payment' %}" class="btn btn-link text-white-50">Chính sách thanh toán</a>
+            <a href="{% url 'policy:refund' %}" class="btn btn-link text-white-50">Chính sách hoàn trả</a>
         </div>
       </div>
 

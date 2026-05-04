@@ -1,0 +1,139 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Chính sách thanh toán - IP Leader{% endblock %}
+
+{% block content %}
+{% include 'components/page_header.html' with title=page_title header_image='img/img_3.png' %}
+    <div class="container-fluid py-5">
+        <div class="row g-5">
+            <div class="col-lg-12">
+                <div class="container">
+
+                    <style>
+                        .doc-wrap { max-width: 860px; margin: 0 auto; font-family: inherit; color: #212529; }
+                        .doc-header { text-align: center; margin-bottom: 2.5rem; }
+                        .doc-header h1 { font-size: 28px; font-weight: 600; margin: 0 0 6px; }
+                        .doc-header p { font-size: 14px; color: #6c757d; margin: 0; }
+                        .doc-section { margin-bottom: 2.2rem; }
+                        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; padding-bottom: 10px; border-bottom: 1px solid #dee2e6; }
+                        .section-badge { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+                        .badge-blue  { background: #E6F1FB; color: #0C447C; }
+                        .badge-green { background: #EAF3DE; color: #27500A; }
+                        .section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #343a40; }
+                        .section-body { font-size: 15px; line-height: 1.85; color: #343a40; }
+                        .section-body p { margin: 0 0 0.8rem; }
+
+                        /* Thẻ phương thức thanh toán */
+                        .payment-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 0.5rem; }
+                        @media (max-width: 600px) { .payment-cards { grid-template-columns: 1fr; } }
+                        .payment-card { border: 1px solid #dee2e6; border-radius: 10px; padding: 18px 20px; background: #fff; }
+                        .payment-card-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 16px; }
+                        .icon-cash { background: #EAF3DE; }
+                        .icon-bank { background: #E6F1FB; }
+                        .payment-card-title { font-size: 14px; font-weight: 600; color: #343a40; margin-bottom: 8px; }
+                        .payment-card-body { font-size: 13px; line-height: 1.8; color: #495057; }
+
+                        /* Bảng thông tin ngân hàng */
+                        .bank-table { width: 100%; margin-top: 10px; border-collapse: collapse; font-size: 13px; }
+                        .bank-table td { padding: 6px 0; vertical-align: top; }
+                        .bank-table td:first-child { color: #6c757d; width: 140px; }
+                        .bank-table td:last-child { font-weight: 600; color: #343a40; }
+
+                        /* Bullet hoàn tiền */
+                        .bullet-list { display: flex; flex-direction: column; gap: 6px; margin: 0.5rem 0 0; }
+                        .bullet-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 13px; border-radius: 6px; font-size: 14px; line-height: 1.65; }
+                        .bullet-item .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+                        .bullet-green { background: #EAF3DE; color: #27500A; }
+                        .bullet-green .dot { background: #639922; }
+
+                        .doc-footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dee2e6; display: flex; justify-content: flex-end; font-size: 14px; color: #6c757d; line-height: 1.8; text-align: right; }
+                    </style>
+
+                    <div class="doc-wrap">
+
+                        <div class="doc-header">
+                            <h1>Chính sách thanh toán</h1>
+                            <p>haha-art.vn — HAHA-ART</p>
+                        </div>
+
+                        <!-- 1. Hình thức thanh toán -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-blue">1</div>
+                                <span class="section-title">Hình thức thanh toán</span>
+                            </div>
+                            <div class="section-body">
+                                <p>HAHA-ART hỗ trợ Người Dùng thanh toán dịch vụ với hai phương thức:</p>
+                                <div class="payment-cards">
+
+                                    <!-- Tiền mặt -->
+                                    <div class="payment-card">
+                                        <div class="payment-card-icon icon-cash">💵</div>
+                                        <div class="payment-card-title">Thanh toán tiền mặt</div>
+                                        <div class="payment-card-body">
+                                            Các cơ sở giáo dục của HAHA-ART.
+                                        </div>
+                                    </div>
+
+                                    <!-- Chuyển khoản -->
+                                    <div class="payment-card">
+                                        <div class="payment-card-icon icon-bank">🏦</div>
+                                        <div class="payment-card-title">Chuyển khoản ngân hàng</div>
+                                        <div class="payment-card-body">
+                                            <table class="bank-table">
+                                                <tr>
+                                                    <td>Chủ tài khoản</td>
+                                                    <td>HAHA-ART</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Số tài khoản</td>
+                                                    <td>*********</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ngân hàng</td>
+                                                    <td>ACB – PGD Văn Thánh, TP. Hồ Chí Minh</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Quy định hoàn tiền -->
+                        <div class="doc-section">
+                            <div class="section-header">
+                                <div class="section-badge badge-green">2</div>
+                                <span class="section-title">Quy định về hoàn tiền</span>
+                            </div>
+                            <div class="section-body">
+                                <p>Hoàn tiền được thực hiện khi Người Dùng đã thanh toán nhưng sau đó phát sinh các vấn đề sau:</p>
+                                <div class="bullet-list">
+                                    <div class="bullet-item bullet-green">
+                                        <div class="dot"></div>
+                                        <span>Không hoàn tất dịch vụ cung cấp</span>
+                                    </div>
+                                    <div class="bullet-item bullet-green">
+                                        <div class="dot"></div>
+                                        <span>Không đúng tiến độ thực hiện do lỗi của HAHA-ART</span>
+                                    </div>
+                                    <div class="bullet-item bullet-green">
+                                        <div class="dot"></div>
+                                        <span>Dịch vụ cung cấp không đúng như yêu cầu của Người Dùng</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-footer">
+                            <div>Giám đốc<br><strong>Lê Thị A</strong></div>
+                        </div>
+
+                    </div><!-- /.doc-wrap -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
