@@ -23,9 +23,11 @@ from django.db import models
 
 class Enrollment(models.Model):
     guardian_name = models.CharField(max_length=255, verbose_name="Tên người giám hộ")
-    guardian_email = models.EmailField(verbose_name="Email người giám hộ")
+    guardian_email = models.EmailField(verbose_name="Email")
+    area = models.CharField(max_length=255, verbose_name="Khu vực")
     child_name = models.CharField(max_length=255, verbose_name="Tên học viên")
     child_age = models.CharField(max_length=50, verbose_name="Tuổi học viên")
+    phone = models.CharField(max_length=20, verbose_name="Số điện thoại")
     message = models.TextField(blank=True, verbose_name="Ghi chú")
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -27,14 +27,18 @@ def register(request):
         guardian_email = request.POST.get('guardian_email')
         child_name = request.POST.get('child_name')
         child_age = request.POST.get('child_age')
+        area = request.POST.get('area')
+        phone = request.POST.get('phone')
         note = request.POST.get('message', '')
 
         # Lưu vào database
         enrollment = Enrollment.objects.create(
             guardian_name=guardian_name,
             guardian_email=guardian_email,
+            area=area,
             child_name=child_name,
             child_age=child_age,
+            phone=phone,
             message=note,
         )
 
@@ -43,12 +47,12 @@ def register(request):
             subject='Xác nhận đăng ký khóa học',
             message=f"""Xin chào {guardian_name},
 
-Chúng tôi đã nhận được đăng ký tham gia khóa học cho học viên {child_name} ({child_age} tuổi).
+HaHa Art đã nhận được đăng ký tham gia khóa học cho học viên {child_name} ({child_age} tuổi).
 
-Chúng tôi sẽ liên hệ lại với bạn sớm nhất có thể.
+HaHa Art sẽ liên hệ lại với bạn sớm nhất có thể.
 
 Trân trọng,
-Đội ngũ hỗ trợ""",
+HaHa Art""",
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[guardian_email],
             fail_silently=False,
@@ -61,6 +65,8 @@ Trân trọng,
 
 Người giám hộ: {guardian_name}
 Email: {guardian_email}
+Khu vực: {area}
+Số điện thoại: {phone}
 Học viên: {child_name}
 Tuổi: {child_age}
 Ghi chú: {note}""",
